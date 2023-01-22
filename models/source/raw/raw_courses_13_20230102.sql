@@ -1,0 +1,1 @@
+select * From dba-training.udemy_enrollment_dataset.raw_courses_13_20230102
