@@ -35,7 +35,7 @@ select
     rev_overall,
     batch_no,
     batch_date
-from {{ ref( 'raw_courses_12_20221130' )}}
+from {{ source('udemy_enrollment_dataset','raw_courses_12_20221130')}}
 union all
 select 
     course_id,
@@ -74,4 +74,4 @@ select
     rev_overall,
     batch_no,
     batch_date
-from {{ ref( 'raw_courses_13_20230102' )}}
+from {{ source('udemy_enrollment_dataset','raw_courses_13_20230102')}}

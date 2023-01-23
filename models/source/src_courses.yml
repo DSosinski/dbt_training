@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: udemy_enrollment_dataset
+    database: dba-training
+    tables:
+      - name: raw_courses_12_20221130
+      - name: raw_courses_13_20230102
+      - name: raw_topics_13_20230102
