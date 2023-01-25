@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: udemy_enrollment_dataset
+    database: dba-training
+    tables:
+      - name: raw_courses_12_20221130
+        columns:
+        - name: course_id
+          tests:
+            - not_null 
+      - name: raw_courses_13_20230102
+        loaded_at_field: last_updated
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 100, period: day}
+      - name: raw_topics_13_20230102
