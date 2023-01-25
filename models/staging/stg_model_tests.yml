@@ -1,0 +1,33 @@
+version:  2
+
+models:
+  - name: stg_courses
+    columns:
+      - name: course_id
+        tests: 
+          - unique:
+              name: stg_courses_course_id_not_null
+          - unique:
+              name: stg_courses_course_id_not_null2
+          - not_null:
+              name: stg_courses_course_id_uniue
+      - name: course_title
+        tests:
+          - check_length:
+              name: stg_courses_course_title_greater_than_10
+              max: 100
+          
+  - name: stg_course_enrollment
+    columns:
+      - name: course_id
+        description: |
+          checking if course id exists in stg_courses
+          line 2
+        tests:
+          - relationships:
+              name: stg_course_enrollment_course_id_FK_stg_courses
+              to: ref('stg_courses')
+              field: course_id
+      
+          
+        

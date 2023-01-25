@@ -37,3 +37,6 @@ models:
     +materialized: view
    staging:
     +materialized: view
+
+tests:
+  +store_failures: true
